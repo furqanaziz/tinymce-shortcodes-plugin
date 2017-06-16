@@ -1,3 +1,4 @@
+
 (function(tinymce) {
   tinymce.PluginManager.add('ShortCodes', function(editor, url) {
     function showDialog() {

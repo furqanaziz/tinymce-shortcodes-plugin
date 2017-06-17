@@ -1,0 +1,136 @@
+<style>
+  .icon-container {
+    width: 230px;
+    padding: .7em 0;
+    float: left;
+    position: relative;
+    text-align: left;
+  }
+  .icon-name {
+    color: #666;
+    margin-left: 10px;
+    font-size: .8em;
+    transition: .3s;
+  }
+  .icon-section {
+    margin: 0 0 1em;
+    clear: both;
+    overflow: hidden;
+  }
+  body.bbpress #body, .pagewidth {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .section .pagewidth {
+    padding: 0 0 0;
+  }
+  .section {
+    text-align: center;
+    position: relative;
+    width: 100%;
+  }
+  .search{
+    width: 100%;
+    height: 35px;
+    padding-left: 10px;
+  }
+  .icon-container .icon-name{
+    cursor: pointer;
+  }
+  .section{
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  select, input {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 20px;
+  }
+</style>
+<section class="section white icons-list">
+  <!--<input type="text" name="search" id="search" class="search" placeholder="Search icons"/>-->
+  <div class="pagewidth">
+    <div class="icon-section">
+      <h3>Short Codes</h3>
+      <form name="form" class="form-horizontal" id="shortcodeForm">
+        <div class="form-group">
+          <!--<label for="shortcode" class="col-sm-2 control-label">Short Code</label>-->
+          <div class="col-sm-10">
+            <select class="form-control" name="shortcode" id="shortcode">
+              <option value="">Select</option>
+              <option value="var">For Title, Style, Script, Content</option>
+              <option value="page">Page</option>
+              <option value="post">Post</option>
+              <option value="block">Block</option>
+              <option value="form">Form</option>
+              <option value="menu">Menu</option>
+              <option value="social posts">For Social Posts</option>
+              <option value="blog posts">For Blog Posts</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="all-fields" id="var-section">
+
+          <div class="form-group">
+            <!--<label for="shortcode" class="col-sm-2 control-label">Short Code</label>-->
+            <div class="col-sm-10">
+              <select class="form-control" name="varType" id="varType">
+                <option value="">Select Short Code Type</option>
+                <option value="title">Title</option>
+                <option value="style">Style</option>
+                <option value="script">Script</option>
+                <option value="contents">Content</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="all-fields" id="slug-section">
+          <input type="text" name="slug" id="slug" placeholder="Please write uri here. e.g contact-us"/>
+        </div>
+
+        <div class="all-fields" id="social-posts-section">
+
+          <div class="form-group">
+            <!--<label for="shortcode" class="col-sm-2 control-label">Short Code</label>-->
+            <div class="col-sm-10">
+              <select class="form-control" name="socialType" id="socialType">
+                <option value="">Select Social Post Type</option>
+                <option value="twitter-short">Twitter Short</option>
+                <option value="twitter-medium">Twitter Medium</option>
+                <option value="twitter-full">Twitter Full</option>
+              </select>
+            </div>
+          </div>
+          <input type="text" name="count" class="count" placeholder="How many social post want to show. e.g 4"/>
+        </div>
+
+        <div class="all-fields" id="blog-posts-section">
+          <div class="form-group">
+            <!--<label for="shortcode" class="col-sm-2 control-label">Short Code</label>-->
+            <div class="col-sm-10">
+              <select class="form-control" name="blogType" id="blogType">
+                <option value="">Select Blog Post Type</option>
+                <option value="blog-short">Blog Short</option>
+                <option value="blog-medium">Blog Medium</option>
+                <option value="blog-full">Blog Full</option>
+              </select>
+            </div>
+          </div>
+
+          <input type="text" name="count" class="count" placeholder="How many social post want to show. e.g 4"/>
+        </div>
+
+        <div class="all-fields" id="submit-button">
+          <input type="submit" name="slug" class="slug"/>
+        </div>
+
+      </form>
+  <!-- /pagewidth -->
+</section>
+<script src="../jquery/dist/jquery.js"></script>
+<script src="embed-data.js"></script>

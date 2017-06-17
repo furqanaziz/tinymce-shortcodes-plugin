@@ -1,5 +1,5 @@
 (function(tinymce) {
-  tinymce.PluginManager.add('ShortCodes', function(editor, url) {
+  tinymce.PluginManager.add('shortCodes', function(editor, url) {
     function showDialog() {
       var win;
       win = editor.windowManager.open({
@@ -8,7 +8,7 @@
         url: 'bower_components/tinymce-shortcodes-plugin/shortcodes-template.html',
         spacing: 10,
         padding: 10,
-        width: 960,
+        width: 560,
         height: 400,
         onclick: function(e) {
         },
@@ -22,7 +22,7 @@
 
     editor.addCommand('showShortCodes', showDialog);
 
-    editor.addButton('ShortCodesBtn', {
+    editor.addButton('shortCodesBtn', {
       text: 'Short Codes',
       tooltip: 'Short Codes',
       cmd: 'showShortCodes',

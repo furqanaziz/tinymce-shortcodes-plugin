@@ -37,13 +37,11 @@ function showForm() {
   hideAll();
 
   var val = shortcode.value;
-  for (var key in shortcodes) {
-    // show correct filed
-    if(key == val) {
-      element = document.getElementById(shortcodes[key]);
-      element.style.display = 'block';
-      document.getElementById("submit-button").style.display = 'block';
-    }
+  if(val && val != 'var' && val != 'social posts' && val != 'blog posts'){
+    selectOptions(val);
+    toggle(val)
+  }else{
+    toggle(val);
   }
 }
 
@@ -64,6 +62,38 @@ function makeShortCode(data) {
   data = data.replace(' ','-');
   return '{{' + data + '}}';
 }
+
+function toggle(_val) {
+  for (var key in shortcodes) {
+    // show correct filed
+    if(key == _val) {
+      element = document.getElementById(shortcodes[key]);
+      element.style.display = 'block';
+      document.getElementById("submit-button").style.display = 'block';
+    }
+  }
+}
+
+function selectOptions(_val) {
+  var options = '';
+  var token = JSON.parse(window.sessionStorage.getItem('token'));
+
+  jQuery.ajax({
+    type: "GET",
+    url: '/api/' + _val + 's/slug',
+    headers: {"Authorization": 'Bearer ' + token},
+    dataType: "json",
+    success: function(response) {
+      response.data.forEach(function(_row) {
+        options += '<option value="' + _row.slug + '">' + _row.title + '</option>';
+      });
+      jQuery('#slug').html(options);
+    },
+    error: function(errorObject, errorText, errorHTTP) {
+    }
+  });
+}
+
 // function searchIcon(){
 // 	var val = document.getElementById("search").value;
 // 	for (i = 0; i < icons.length; i++) {
